@@ -1,4 +1,3 @@
-// lib.typ
 
 // Internal states for global access
 #let _placard-colors = state("placard-colors", (:))
@@ -39,8 +38,8 @@
   title: 65pt,
   authors: 22pt,
   body: 20pt,
-  h1: 36pt,
-  h2: 28pt,
+  h1: 35pt,
+  h2: 29pt,
   card-body: 20pt,
   footer: 24pt,
 )
@@ -49,12 +48,12 @@
 // FONTS
 // 
 #let _default-fonts = (
-  title: "sans",
-  authors: "sans",
-  body: "sans",
-  headings: "sans",
-  card: "sans",
-  footer: "sans",
+  title: "Libertinus Serif",
+  authors: "Libertinus Serif",
+  body: "Libertinus Serif",
+  headings: "Libertinus Serif",
+  card: "Libertinus Serif",
+  footer: "Libertinus Serif",
 )
 
 // ------------------------------------------
@@ -113,7 +112,7 @@
         columns: (1fr, 1fr, 1fr),
         align(footer.text-placement + horizon, footer.content),
         align(center + horizon, if footer.text-placement == center { footer.content }),
-        align(footer.logo-placement + horizon, if footer.logo != none { footer.logo }),
+        align(footer.logo-placement + horizon, if footer.logo != none { image(footer.logo) }),
       )
     ],
   )
@@ -127,7 +126,7 @@
     #set text(font: f.title, size: s.title, weight: "bold", fill: c.title)
     #if st.title-smallcaps { smallcaps(title-text) } else { title-text }
     ]
-    #line(length: 100%, stroke: 3pt + c.accent)
+    #line(length: 100%, stroke: 2pt + c.accent)
   ]
 
   show heading.where(level: 1): it => [
