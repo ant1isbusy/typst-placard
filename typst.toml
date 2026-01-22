@@ -1,5 +1,5 @@
 [package]
-name = "Placard"
+name = "placard"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["@ant1isbusy"]
