@@ -4,6 +4,7 @@
 #let _placard-colors = state("placard-colors", (:))
 #let _placard-sizes = state("placard-sizes", (:))
 #let _placard-fonts = state("placard-fonts", (:))
+#let _placard-styles = state("placard-styles", (:))
 
 // ------------------------------------------
 // THEMES
@@ -38,8 +39,8 @@
   title: 65pt,
   authors: 22pt,
   body: 20pt,
-  h2: 36pt,
-  h3: 28pt,
+  h1: 36pt,
+  h2: 28pt,
   card-body: 20pt,
   footer: 24pt,
 )
@@ -57,6 +58,15 @@
 )
 
 // ------------------------------------------
+// STYLES
+// 
+#let _default-styles = (
+  title-smallcaps: false,
+  h1-smallcaps: true,
+  h2-smallcaps: true,
+)
+
+// ------------------------------------------
 // PLACARD element
 // 
 #let placard(
@@ -70,6 +80,8 @@
   colors: (:), 
   sizes: (:),
   fonts: (:),
+  styles: (:),
+  margin: (:),
   footer: (
     content: [],
     logo: none,
@@ -80,6 +92,8 @@
 ) = {
   let c = _default-themes.at(scheme) + colors 
   let f = _default-fonts + fonts
+  let st = _default-styles + styles
+  let marg = (top: 3.5cm, bottom: 6cm, x: 2.5cm) + margin
   
   let base-s = _default-sizes + sizes
   let s = (:)
@@ -89,7 +103,7 @@
 
   set page(
     paper: paper,
-    margin: (top: 3.5cm, bottom: 6cm, x: 2.5cm),
+    margin: marg,
     fill: c.paper-fill,
     footer: [
       #set text(font: f.footer, size: s.footer, fill: c.footer-text)
@@ -107,21 +121,31 @@
   set text(font: f.body, weight: "light", size: s.body, fill: c.text)
   set par(justify: true)
 
-  show heading.where(level: 1): it => [
+  let render-title(title-text) = [
     #set align(center)
+    #block(inset: (bottom: 1em))[
     #set text(font: f.title, size: s.title, weight: "bold", fill: c.title)
-    #it
+    #if st.title-smallcaps { smallcaps(title-text) } else { title-text }
+    ]
     #line(length: 100%, stroke: 3pt + c.accent)
   ]
 
-  show heading.where(level: 2): set text(font: f.headings, fill: c.heading, size: s.h2, weight: "semibold")
-  show heading.where(level: 3): set text(font: f.headings, fill: c.accent, size: s.h3, weight: "semibold")
+  show heading.where(level: 1): it => [
+    #set text(font: f.headings, fill: c.heading, size: s.h1, weight: "semibold")
+    #if st.h1-smallcaps { smallcaps(it) } else { it }
+  ]
+  
+  show heading.where(level: 2): it => [
+    #set text(font: f.headings, fill: c.accent, size: s.h2, weight: "semibold")
+    #if st.h2-smallcaps { smallcaps(it) } else { it }
+  ]
 
   _placard-colors.update(c)
   _placard-sizes.update(s)
   _placard-fonts.update(f)
+  _placard-styles.update(st)
 
-  heading(level: 1, title)
+  render-title(title)
   grid(
     columns: authors.map(_ => 1fr),
     gutter: 1em,
@@ -152,7 +176,7 @@
       stroke: 2pt + card-stroke, 
       [
         #if title != "" {
-          heading(level: 2, title)
+          heading(level: 1, title)
           v(0.5em)
         }
         #set text(font: f.card, weight: "regular", size: s.card-body)
