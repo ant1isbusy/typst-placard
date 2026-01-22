@@ -1,0 +1,9 @@
+[package]
+name = "Placard"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["@ant1isbusy"]
+license = "MIT"
+description = "A versatile scientific poster package with modular grid layouts."
+repostiory = "https://github.com/ant1isbusy/typst-placard"
+keywords = ["poster", "plakat"]
