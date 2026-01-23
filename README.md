@@ -110,7 +110,7 @@ Use the `card` function within your body to wrap content in a consistent contain
 
 ### Example Usage
 <div align="center">
-  <img src="docs/img/example.png" width="70%" alt="Poster Example Preview" style="border: 1px solid #eeeeee;">
+  <img src="docs/img/preview.png" width="70%" alt="Poster Example Preview" style="border: 1px solid #eeeeee;">
 </div>
 
 ```typ
