@@ -18,7 +18,7 @@ A [Typst](https://typst.app/) package for creating simple posters.
       <img src="docs/img/poster.png" height="400" alt="Light Poster Layout"/>
     </td>
     <td align="center" style="background: white; vertical-align: middle;">
-      <img src="docs/img/dark-poster.png" height="400" alt="Dark Poster Layout"/>
+      <img src="https://github.com/ant1isbusy/typst-placard/blob/5da3601bb50d1bd1bb96876e67596a8210f56330/docs/img/dark-poster.png" height="400" alt="Dark Poster Layout"/>
     </td>
   </tr>
 </table>
