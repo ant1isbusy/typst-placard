@@ -5,5 +5,6 @@ entrypoint = "lib.typ"
 authors = ["@ant1isbusy"]
 license = "MIT"
 description = "A versatile scientific poster package with modular grid layouts."
-repostiory = "https://github.com/ant1isbusy/typst-placard"
+repository = "https://github.com/ant1isbusy/typst-placard"
 keywords = ["poster", "plakat"]
+categories = ["poster"]
