@@ -10,9 +10,9 @@
 // 
 #let _default-themes = (
   light: (
-    paper-fill: rgb("#f7f3ed"), 
+    paper-fill: rgb("#fdfbf8"), 
     card-fill: rgb("#ffffff"),  
-    card-border: rgb("#d9c7c7"),
+    card-border: rgb("#aba6a6"),
     title: rgb("#1a1a1a"),      
     heading: rgb("#1a1a1a"),
     text: rgb("#1a1a1a"),
