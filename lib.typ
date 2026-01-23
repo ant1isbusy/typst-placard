@@ -40,7 +40,7 @@
   body: 20pt,
   h1: 35pt,
   h2: 29pt,
-  card-body: 20pt,
+  card: 20pt,
   footer: 24pt,
 )
 
@@ -76,11 +76,12 @@
   num-columns: 2,
   gutter: 1.5em,
   scaling: 1.0,
-  colors: (:), 
+  colors: (:),
   sizes: (:),
   fonts: (:),
   styles: (:),
   margin: (:),
+  flipped: false,
   footer: (
     content: [],
     logo: none,
@@ -92,8 +93,14 @@
   let c = _default-themes.at(scheme) + colors 
   let f = _default-fonts + fonts
   let st = _default-styles + styles
-  let marg = (top: 3.5cm, bottom: 6cm, x: 2.5cm) + margin
-  
+  let marg = (top: 3.5cm * scaling, bottom: 6cm * scaling, x: 2.5cm * scaling) + margin
+  let foot = (
+    content: [],
+    logo: none,
+    logo-placement: right,
+    text-placement: left,
+  ) + footer
+
   let base-s = _default-sizes + sizes
   let s = (:)
   for (k, v) in base-s {
@@ -104,15 +111,18 @@
     paper: paper,
     margin: marg,
     fill: c.paper-fill,
+    flipped: flipped,
     footer: [
       #set text(font: f.footer, size: s.footer, fill: c.footer-text)
       #line(length: 100%, stroke: 2pt + c.accent)
       #v(0.5em)
       #grid(
         columns: (1fr, 1fr, 1fr),
-        align(footer.text-placement + horizon, footer.content),
-        align(center + horizon, if footer.text-placement == center { footer.content }),
-        align(footer.logo-placement + horizon, if footer.logo != none { image(footer.logo) }),
+        align(foot.text-placement + horizon, foot.content),
+        align(center + horizon, if foot.text-placement == center { foot.content }),
+        align(foot.logo-placement + horizon, if foot.logo != none { 
+          if type(foot.logo) == str { image(foot.logo, height: 2.5cm) } else { foot.logo }
+        }),
       )
     ],
   )
@@ -178,7 +188,7 @@
           heading(level: 1, title)
           v(0.5em)
         }
-        #set text(font: f.card, weight: "regular", size: s.card-body)
+        #set text(font: f.card, weight: "regular", size: s.card)
         #body
       ],
     )
