@@ -32,7 +32,7 @@ The `placard` function is designed to be highly modular. You can pass dictionari
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` | `content` | `"Poster Title"` | The main heading of the poster. |
+| `title` | `string` | `"Poster Title"` | The main heading of the poster. |
 | `authors` | `array` | `()` | A list of author names displayed below the title. |
 | `scheme` | `string` | `"light"` | Base theme: `"light"` (Warm Linen) or `"dark"` (Midnight). |
 | `paper` | `string` | `"a1"` | Standard poster paper size (e.g., `"a0"`, `"a1"`, `"a2"`). |
@@ -101,7 +101,7 @@ Use the `card` function within your body to wrap content in a consistent contain
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| `title` | `content` | Automatically creates a Level 1 heading inside the card. |
+| `title` | `string` | Automatically creates a Level 1 heading inside the card. |
 | `fill` | `color` | Override the background for a specific card. |
 | `border-stroke` | `stroke` | Override the border style for a specific card. |
 | `gap` | `length` | Vertical space after the card (Default: `1em`). |
