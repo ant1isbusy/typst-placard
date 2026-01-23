@@ -8,6 +8,7 @@ description = "A versatile scientific poster package with modular grid layouts."
 repository = "https://github.com/ant1isbusy/typst-placard"
 keywords = ["poster", "plakat"]
 categories = ["poster", "layout"]
+exclude= ["docs/"]
 
 [template]
 path = "template"
