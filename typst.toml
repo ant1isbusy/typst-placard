@@ -1,7 +1,7 @@
 [package]
 name = "placard"
 version = "0.1.0"
-entrypoint = "lib.typ"
+entrypoint = "src/lib.typ"
 authors = ["@ant1isbusy"]
 license = "MIT"
 description = "A versatile scientific poster package with modular grid layouts."
