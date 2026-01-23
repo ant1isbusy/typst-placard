@@ -1,4 +1,5 @@
 ![Version](https://img.shields.io/badge/version-0.1.0-green)
+[![Repo](https://img.shields.io/badge/GitHub-repo-444)](https://github.com/ant1isbusy/typst-placard)
 
 # placard
 
