@@ -10,8 +10,20 @@ A [Typst](https://typst.app/) package for creating simple posters.
 ```typ
 #import "@preview/placard:0.1.0": placard, card
 ```
+<div align="center">
+<table align="center">
+  <tr>
+    <td align="center" style="background: white; vertical-align: middle;">
+      <img src="docs/img/poster.png" height="400" alt="Light Poster Layout"/>
+    </td>
+    <td align="center" style="background: white; vertical-align: middle;">
+      <img src="docs/img/dark-poster.png" height="400" alt="Dark Poster Layout"/>
+    </td>
+  </tr>
+</table>
+</div>
 
-# Configuration
+## Configuration
 
 The `placard` function is designed to be highly modular. You can pass dictionaries to `colors`, `sizes`, `fonts`, and `styles` to override specific elements without touching the rest of the theme.
 
@@ -129,20 +141,4 @@ Use the `card` function within your body to wrap content in a consistent contain
 ```
 <div align="center">
   <img src="docs/img/example.png" width="70%" alt="Poster Example Preview" style="border: 1px solid #eeeeee;">
-</div>
-
-### Examples of full posters:
----
-
-<div align="center">
-<table align="center">
-  <tr>
-    <td align="center" style="background: white; vertical-align: middle;">
-      <img src="docs/img/poster.png" height="400" alt="Light Poster Layout"/>
-    </td>
-    <td align="center" style="background: white; vertical-align: middle;">
-      <img src="docs/img/dark-poster.png" height="400" alt="Dark Poster Layout"/>
-    </td>
-  </tr>
-</table>
 </div>
